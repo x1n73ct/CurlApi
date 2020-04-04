@@ -61,7 +61,7 @@ class CurlApi
 
     private function CheckData($data)
     {
-        return (is_array($data)) ? json_encode($data) : $data;
+        return (is_array($data) || $data instanceof stdClass) ? json_encode($data) : $data;
     }
 
     private function Urls($url)
