@@ -18,7 +18,7 @@ class CurlApi
         $this->request = $req;
     }
 
-    public function Get($url, $data, $header = [])
+    public function Get($url, $data = [], $header = [])
     {
         $this->url = $url;
         $this->data = $data;
@@ -64,7 +64,7 @@ class CurlApi
         $this->SetHeader($header);
         $this->SetOpt();
         return $this->GetExec();
-    } 
+    }
 
     private function DefaultOpt()
     {
@@ -103,7 +103,7 @@ class CurlApi
     {
         if ($this->method === "GET") {
 
-            $this->option[CURLOPT_URL] = $this->url .(!empty($this->data)) ? "?" . http_build_query($this->data) :"";
+            $this->option[CURLOPT_URL] = $this->url . (!empty($this->data)) ? "?" . http_build_query($this->data) : "";
         } else {
 
             $this->option[CURLOPT_URL] = $this->url;
