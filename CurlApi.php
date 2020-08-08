@@ -12,10 +12,10 @@ class CurlApi
     private $option = [];
     private $header = [];
 
-    public function __construct($req)
+    public function __construct($req = "") 
     {
         $this->ch = curl_init();
-        $this->request = $req;
+        $this->request = (!empty($req) && strtolower($req) == "json") ? "isjson" : "notjson";
     }
 
     public function Get($url, $data = [], $header = [])
