@@ -103,7 +103,7 @@ class CurlApi
     {
         if ($this->method === "GET") {
 
-            $this->option[CURLOPT_URL] = $this->url . "?" . http_build_query($this->data);
+            $this->option[CURLOPT_URL] = $this->url .(!empty($this->data)) ? "?" . http_build_query($this->data) :"";
         } else {
 
             $this->option[CURLOPT_URL] = $this->url;
